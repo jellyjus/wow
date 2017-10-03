@@ -9,6 +9,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
+    "vide": "^0.5.1",
     "vue": "^2.4.4"
   },
   "devDependencies": {

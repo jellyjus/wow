@@ -13,13 +13,13 @@ class Server {
     setup() {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended: false}));
-        this.app.use(express.static(__dirname + '/dist'));
+        this.app.use(express.static(__dirname + '/frontend/dist'));
     }
 
     initEnv() {
         try {
             process.env.NODE_ENV = process.env.NODE_ENV? process.env.NODE_ENV : 'dev';
-            console.log('Init env', process.env.NODE_ENV)
+            console.log('Init env', process.env.NODE_ENV);
 
             //if (process.env.NODE_ENV == 'dev')
                 //this.createDevSettings();

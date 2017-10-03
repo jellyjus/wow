@@ -22,12 +22,12 @@ module.exports = {
                 }
             },
             {
-                test: /\.js$/,
+                test: /\.(js|css)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|gif|svg|otf)$/,
                 loader: 'url-loader',
             }
         ]
@@ -38,6 +38,9 @@ module.exports = {
             {
                 from: 'src/assets/',
                 to: path.resolve(__dirname, './dist', 'assets')
+            },
+            {
+                from: 'src/index.html'
             }
         ])
     ],

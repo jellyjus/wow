@@ -1,0 +1,36 @@
+@font-face {
+    font-family: Adam;
+    src: url(../fonts/ADAM.otf);
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+    transform: scale(1.03);
+    position: fixed;
+    z-index: 5;
+}
+
+.container, .container-fluid {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    font-family: 'Adam', sans-serif;
+}
+
+.row-main, #app {
+    height: 100%;
+}
+
+.main {
+    padding: 30px 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+}

@@ -1,61 +1,37 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>asd
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div class="video" data-vide-bg="assets/video/ocean"></div>
+    <div class="container-fluid d-flex flex-column">
+      <div class="row row-main">
+        <div class="col-sm-6 offset-sm-3 text-center d-flex flex-column justify-content-center align-items-center">
+          <div class="main">
+            <h2>WOWCIRLE GUILD SERVICE</h2>
+            <div class="button">Создать</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
+<style src="./assets/css/bootstrap.min.css"></style>
+<style src="./assets/css/buttons.css"></style>
+<style src="./assets/css/main.css"></style>
+
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  import 'jquery'
+  import 'vide'
+
+  export default {
+      name: 'app',
+      data () {
+          return {
+              name: 'WOW',
+              msg: 'Welcome to Your Vue.js App'
+          }
+      },
+      created: function () {
+
+      }
   }
-}
 </script>
-
-<style src="./assets/my.css"></style>
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
