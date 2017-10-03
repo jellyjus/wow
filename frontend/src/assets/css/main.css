@@ -29,8 +29,3 @@ html, body {
 .row-main, #app {
     height: 100%;
 }
-
-.main {
-    padding: 30px 20px;
-    background-color: rgba(0, 0, 0, 0.4);
-}
