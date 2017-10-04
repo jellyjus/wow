@@ -2,13 +2,15 @@
   "name": "wow-vue",
   "version": "0.0.1",
   "scripts": {
-    "start": "NODE_ENV=dev node server",
+    "start": "node Runner",
+    "server": "NODE_ENV=dev node server",
     "build:dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "rimraf": "^2.6.2"
   },
   "devDependencies": {
     "webpack-dev-middleware": "^1.12.0",
