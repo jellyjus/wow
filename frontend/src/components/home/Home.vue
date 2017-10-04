@@ -1,13 +1,15 @@
 <template>
-    <div class="main">
-        <div v-else v-if="!register">
-            <h2>WOWCIRLE GUILD SERVICE</h2>
+    <v-layout row wrap>
+        <v-flex xs6 offset-xs3 class="main" v-if="!register">
+            <h3>WOWCIRLE GUILD SERVICE</h3>
             <div class="button" @click="register = !register">Создать</div>
-        </div>
-        <transition name="fade" v-else>
-            <register ></register>
+        </v-flex>
+        <transition name="fade">
+            <v-flex xs10 offset-xs1 class="main" v-if="register">
+                <register></register>
+            </v-flex>
         </transition>
-    </div>
+    </v-layout>
 </template>
 
 <script>

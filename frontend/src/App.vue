@@ -1,20 +1,21 @@
 <template>
-  <div id="app">
-    <div class="video" data-vide-bg="assets/video/ocean"></div>
-    <div class="container-fluid d-flex flex-column">
-      <div class="row row-main">
-        <div class="col-sm-10 offset-sm-1 text-center d-flex flex-column justify-content-center align-items-center">
-          <transition name="fade">
-            <router-view></router-view>
-          </transition>
-        </div>
-      </div>
+  <v-app dark>
+    <div id="app">
+      <div class="video" data-vide-bg="assets/video/ocean"></div>
+      <v-container fluid fill-height>
+        <v-layout row wrap align-center justify-center>
+          <v-flex xs10 text-xs-center>
+            <transition name="fade">
+              <router-view></router-view>
+            </transition>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </div>
-  </div>
+  </v-app>
 </template>
 
-<!--<style src="../node_modules/vuetify/dist/vuetify.min.css"></style>-->
-<style src="./assets/css/bootstrap.min.css"></style>
+<style src="../node_modules/vuetify/dist/vuetify.min.css"></style>
 <style src="./assets/css/buttons.css"></style>
 <style src="./assets/css/main.css"></style>
 

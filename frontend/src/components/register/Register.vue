@@ -1,5 +1,20 @@
 <template>
-    <h2>{{title}}</h2>
+    <v-form v-model="valid" ref="form" class="text-xs-left">
+        <v-text-field
+                label="Guild name"
+                v-model="guildName"
+                :rules="[(v) => !!v || 'Name is required']"
+                required
+        ></v-text-field>
+        <v-select
+                label="Server"
+                v-model="server"
+                :items="serversList"
+                :rules="[(v) => !!v || 'Server is required']"
+                required
+        ></v-select>
+        <div class="button" @click="submit" :style="{margin: 0}">Создать</div>
+    </v-form>
 </template>
 
 <script>
@@ -7,7 +22,22 @@
         name: 'register',
         data() {
             return {
-                title: 'Создать гильдию'
+                valid: false,
+                guildName: '',
+                server: null,
+                serversList: [
+                    'LK x5',
+                    'LK x100',
+                    'Cataclysm x100',
+                    'Legion x4'
+                ]
+            }
+        },
+        methods: {
+            submit () {
+                if (this.$refs.form.validate()) {
+                    this.$refs.form.$el.submit()
+                }
             }
         }
     }
