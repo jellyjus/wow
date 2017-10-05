@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const fs = require('fs');
 
 class Server {
     constructor() {
@@ -18,7 +18,6 @@ class Server {
     }
 
     initEnv() {
-        //test
         try {
             process.env.NODE_ENV = process.env.NODE_ENV? process.env.NODE_ENV : 'dev';
             console.log('Init env', process.env.NODE_ENV);
@@ -52,9 +51,14 @@ class Server {
     createServer() {
         const port = process.env.PORT || 8080;
         this.server = require('http').createServer(this.app);
-        this.server.listen(port, () =>
+        this.server.listen(port, () => {
+            this.writePID();
             console.log(`Start listening on localhost:${port}`)
-        );
+        });
+    }
+
+    writePID() {
+        fs.writeFileSync('server_pid.txt', process.pid)
     }
 }
 
