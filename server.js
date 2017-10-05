@@ -18,6 +18,7 @@ class Server {
     }
 
     initEnv() {
+        //test
         try {
             process.env.NODE_ENV = process.env.NODE_ENV? process.env.NODE_ENV : 'dev';
             console.log('Init env', process.env.NODE_ENV);
