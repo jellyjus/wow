@@ -11,18 +11,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.post('/', (req, res) => {
-    console.log(req.body);
-    res.end('ok');
+    const pid = fs.readFileSync('server_pid.txt', 'utf8');
+    exec(`kill ${pid} && git pull && c9 exec run`, (err, stdout, stderr) => {
+        if (err) {
+            return console.log(err, stderr)
+        }
+    });
+    res.end('ok')
 });
 
 app.get('/', (req,res) => {
-    const pid = fs.readFileSync('server_pid.txt', 'utf8');
-    exec(`kill ${pid}`, (err, stdout, stderr) => {
-        if (err) {
-            return res.end(err)
-        }
-        res.end('success')
-    });
+    res.end('ok')
 });
 
 const server = require('http').createServer(app);
