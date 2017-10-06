@@ -58,7 +58,8 @@ class Server {
     }
 
     writePID() {
-        fs.writeFileSync('server_pid.txt', process.pid)
+        fs.writeFileSync('server_pid.txt', process.pid);
+        console.log('Server PID:', process.pid)
     }
 }
 
