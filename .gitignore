@@ -3,3 +3,4 @@ frontend/dist/
 frontend/node_modules/
 .idea/
 *.iml
+server_pid.txt

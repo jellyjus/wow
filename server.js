@@ -20,7 +20,7 @@ class Server {
     initEnv() {
         try {
             process.env.NODE_ENV = process.env.NODE_ENV? process.env.NODE_ENV : 'dev';
-            console.log('Init env', process.env.NODE_ENV);
+            console.log('Init env:', process.env.NODE_ENV);
 
             //if (process.env.NODE_ENV == 'dev')
                 //this.createDevSettings();
