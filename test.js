@@ -1,1 +1,0 @@
-var plugin = new Plugin("(Company) Name", ['run']);
