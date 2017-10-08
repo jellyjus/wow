@@ -7,6 +7,9 @@ Vue.use(Vuetify);
 
 new Vue({
     el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    },
     router,
     render: h => h(App)
 });

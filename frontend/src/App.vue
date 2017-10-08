@@ -1,8 +1,12 @@
 <template>
   <v-app dark>
     <div id="app">
-      <div class="video" data-vide-bg="assets/video/ocean"></div>
+      <div class="video" data-vide-bg="/static/assets/video/ocean"></div>
       <v-container fluid fill-height>
+        <div class="auth">
+          <img :src="photo" v-if="photo">
+          <v-icon x-large dark v-else @click="login">person_pin</v-icon>
+        </div>
         <v-layout row wrap align-center justify-center>
           <v-flex xs10 text-xs-center>
             <transition name="fade">
@@ -28,11 +32,32 @@
       data () {
           return {
               name: 'WOW',
-              msg: 'Welcome to Your Vue.js App'
+              photo: null
           }
       },
       created: function () {
-
+          VK.Auth.getLoginStatus((response) => {
+              if (response.session) {
+                  this.VK_getPhoto(response.session.mid)
+              }
+          })
+      },
+      methods: {
+          login: function () {
+              console.log('login');
+              VK.Auth.login(function(response) {
+                  if (response.session) {
+                    this.VK_getPhoto(response.session.mid)
+                  } else {
+                    console.log('ERROR AUTH')
+                  }
+              });
+          },
+          VK_getPhoto: function (uid) {
+              VK.Api.call('users.get', {user_ids: uid, fields: 'photo_50'}, (data) => {
+                  this.photo = data.response[0].photo_50
+              });
+          }
       }
   }
 </script>

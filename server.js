@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
+global.appRoot = __dirname;
 
 class Server {
     constructor() {
@@ -11,6 +13,7 @@ class Server {
     async init() {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended: false}));
+        this.app.use(cookieParser());
 
         this.initEnv();
         await this.initDb();
@@ -57,13 +60,13 @@ class Server {
 
     initRouting() {
         try {
+            this.app.use('/static',express.static('frontend/dist'));
+            this.app.use(express.static('static'));
+
             const Routing = require('./routing/Routing');
             const routingManager = new Routing(this.db);
 
             this.app.use(routingManager.createRouteHandlers(express));
-
-            this.app.use(express.static('frontend/dist'));
-            this.app.use(express.static('static'));
         } catch (err) {
             console.log('Error when init routes', err);
             process.exit();
@@ -71,7 +74,7 @@ class Server {
     }
 
     createServer() {
-        const port = process.env.PORT || 8088;
+        const port = process.env.PORT || 8080;
         this.server = require('http').createServer(this.app);
         this.server.listen(port, () => {
             this.writePID();

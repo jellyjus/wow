@@ -29,6 +29,7 @@ class Routing {
     createRouteHandlers(express) {
         let router = express.Router();
 
+        router.get('/', this.handle(this.routes.index));
         router.get('/health', (req, res) => res.send('ok'));
         router.post('/guild/create', this.handle(this.routes.createGuild));
 

@@ -1,7 +1,10 @@
+const config = require(appRoot + '/configs');
+
 class Task {
     constructor(req, res) {
         this.req = req;
         this.res = res;
+        this.cfg = config;
     }
 
     get params() {
