@@ -45,7 +45,7 @@
       methods: {
           login: function () {
               console.log('login');
-              VK.Auth.login(function(response) {
+              VK.Auth.login((response) => {
                   if (response.session) {
                     this.VK_getPhoto(response.session.mid)
                   } else {
