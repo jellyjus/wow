@@ -4,7 +4,7 @@ class Index {
     }
 
     async handle(task) {
-        console.log(task.req.cookies)
+        console.log('auth:', task.req.auth);
         task.res.sendFile(appRoot + '/frontend/dist/index.html');
     }
 }
