@@ -34,9 +34,13 @@
             }
         },
         methods: {
-            submit () {
+            submit: async function () {
                 if (this.$refs.form.validate()) {
-                    this.$refs.form.$el.submit()
+                    try {
+                        const res = await this.$http.post('/guild/create', {server: this.server, name: this.guildName})
+                    } catch (e) {
+                        console.log(e)
+                    }
                 }
             }
         }
