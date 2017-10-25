@@ -24,7 +24,13 @@ class Guilds {
                  res({err: 'Error on create guild prepare params'});
             }
         })
+    }
 
+    get(params) {
+      return new Promise(async (res, rej) => {
+        const data = await this.collection.count();
+        res(data)
+      })
     }
 }
 
