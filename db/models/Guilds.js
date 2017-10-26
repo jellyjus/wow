@@ -1,3 +1,5 @@
+const Utils = require(appRoot + '/utils');
+
 class Guilds {
     constructor(db) {
         this.collection = db.collection('guilds')
@@ -6,10 +8,12 @@ class Guilds {
     create(params) {
         return new Promise(async (res, rej) => {
             try {
+                const id = await this.collection.count();
                 const data = await this.collection.updateOne(
                     {
                         name: params.name,
-                        server: params.server
+                        server: params.server,
+                        id
                     },
                     {
                         $setOnInsert: {
@@ -27,10 +31,7 @@ class Guilds {
     }
 
     get(params) {
-      return new Promise(async (res, rej) => {
-        const data = await this.collection.count();
-        res(data)
-      })
+        return this.collection.findOne({id: +params.id}, {fields:{_id:0}});
     }
 }
 

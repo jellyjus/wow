@@ -36,7 +36,7 @@ class Routing {
         router.post('/guild/create', this.handle(this.routes.createGuild));
         router.get('/guild/get', this.handle(this.routes.getGuild));
 
-        router.get(['/', '/guild/**'], this.handle(this.routes.index));
+        router.get(['/', '/guild/id:id**'], this.handle(this.routes.index));
 
         return router;
     }
